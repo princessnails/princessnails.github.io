@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <link rel="icon" href="uñas.png" type="image/svg+xml">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Princess Nails</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <h1>💖 Princess Nails</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- INICIO -->
+  <section id="inicio" class="hero">
+    <h2>Uñas perfectas con estilo princesa ✨</h2>
+    <p>Diseños únicos, elegantes y personalizados</p>
+    <a href="#contacto" class="btn">Reservar Turno</a>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>💅 Kapping</h3>
+        <p>Refuerzo para uñas naturales con acabado elegante.</p>
+      </div>
+      <div class="card">
+        <h3>🌸 Esmaltado Semipermanente</h3>
+        <p>Duración y brillo por semanas.</p>
+      </div>
+      <div class="card">
+        <h3>👑 Soft Gel</h3>
+        <p>Extensiones modernas y delicadas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+
+  <section id="galeria">
+  <h2>Mis Trabajos</h2>
+
+  <div class="carousel-container">
+    
+    <div class="fade-left"></div>
+    <div class="fade-right"></div>
+
+    <!-- FLECHAS -->
+    <button class="arrow left">&#10094;</button>
+    <button class="arrow right">&#10095;</button>
+
+    <div class="carousel">
+      <div class="carousel-track" id="track">
+        <img src="img1.jpeg">
+        <img src="img2.jpeg">
+        <img src="img3.jpeg">
+        <img src="img4.png">
+        <img src="img5.png">
+        <img src="img6.png">
+        <img src="img7.png">
+        <img src="img8.png">
+        <img src="img9.png">
+        <img src="img10.png">
+        <img src="img11.png">
+        <img src="img12.png">
+        <img src="img13.png">
+      </div>
+    </div>
+
+    <!-- DOTS -->
+    <div class="dots" id="dots"></div>
+
+  </div>
+</section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contacto">
+  <h2>Contacto</h2>
+  <p>Reservá tu turno o seguime en redes 💖</p>
+
+  <div class="contacto-botones">
+    <a href="https://wa.me/5491132012078?text=Hola!  ¿Tenes turnos disponibles?" 
+       class="btn whatsapp" 
+       target="_blank">
+      💬 Reservar por WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/princess.naiilsss/" 
+       class="btn instagram" 
+       target="_blank">
+      📸 Ver Instagram
+    </a>
+  </div>
+</section>
+  <footer>
+    <p>© 2026 Princess Nails - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+const track = document.getElementById("track");
+const images = track.querySelectorAll("img");
+const leftBtn = document.querySelector(".arrow.left");
+const rightBtn = document.querySelector(".arrow.right");
+const dotsContainer = document.getElementById("dots");
+
+let index = 0;
+let autoSlide;
+let startX = 0;
+let isDragging = false;
+
+const gap = 20; // mismo gap del CSS
+
+/* Crear puntitos */
+images.forEach((_, i) => {
+  const dot = document.createElement("span");
+  if (i === 0) dot.classList.add("active");
+  dot.addEventListener("click", () => moveToSlide(i));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".dots span");
+
+function updateDots() {
+  dots.forEach(dot => dot.classList.remove("active"));
+  if (dots[index]) dots[index].classList.add("active");
+}
+
+function getImageWidth() {
+  return images[0].clientWidth + gap;
+}
+
+function moveToSlide(i) {
+  index = i;
+  const imgWidth = getImageWidth();
+  track.style.transform = `translateX(-${imgWidth * index}px)`;
+  updateDots();
+}
+
+/* Flechas */
+/* Flechas (versión segura) */
+if (rightBtn && leftBtn) {
+  rightBtn.addEventListener("click", () => {
+    stopAutoSlide();
+    index = (index + 1) % images.length;
+    moveToSlide(index);
+    startAutoSlide();
+  });
+
+  leftBtn.addEventListener("click", () => {
+    stopAutoSlide();
+    index = (index - 1 + images.length) % images.length;
+    moveToSlide(index);
+    startAutoSlide();
+  });
+}
+
+/* AUTO PLAY */
+function startAutoSlide() {
+  autoSlide = setInterval(() => {
+    index = (index + 1) % images.length;
+    moveToSlide(index);
+  }, 3000);
+}
+
+function stopAutoSlide() {
+  clearInterval(autoSlide);
+}
+
+/* PAUSA AL PASAR MOUSE */
+track.addEventListener("mouseenter", stopAutoSlide);
+track.addEventListener("mouseleave", startAutoSlide);
+
+/* ===== SWIPE TÁCTIL (CELULAR) ===== */
+track.addEventListener("touchstart", (e) => {
+  stopAutoSlide();
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchmove", (e) => {
+  const moveX = e.touches[0].clientX;
+  const diff = startX - moveX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      index = (index + 1) % images.length; // swipe izquierda
+    } else {
+      index = (index - 1 + images.length) % images.length; // swipe derecha
+    }
+    moveToSlide(index);
+    startX = moveX;
+  }
+});
+
+track.addEventListener("touchend", startAutoSlide);
+
+/* ===== DRAG CON MOUSE (PC) ===== */
+track.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  startX = e.clientX;
+  stopAutoSlide();
+});
+
+track.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+
+  const diff = startX - e.clientX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      index = (index + 1) % images.length;
+    } else {
+      index = (index - 1 + images.length) % images.length;
+    }
+    moveToSlide(index);
+    startX = e.clientX;
+  }
+});
+
+track.addEventListener("mouseup", () => {
+  isDragging = false;
+  startAutoSlide();
+});
+
+track.addEventListener("mouseleave", () => {
+  isDragging = false;
+});
+
+/* Iniciar carrusel */
+startAutoSlide();
+</script>
+
+</body>
+</html>
