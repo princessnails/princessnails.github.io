@@ -1,231 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Princess Nails</title>
-  <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png" type="image/svg+xml">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio - Iván</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
+  
 
-  <!-- NAV -->
-  <header>
-    <h1>💖 Princess Nails</h1>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#galeria">Galería</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+  <!-- NAVBAR -->
+  <nav>
+    <h1><span id="nav-typing"></span></h1>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header id="inicio">
+    <h2 class="hero-title"><span id="typing"></span></h2>
+    <p class="hero-subtitle">
+      Estudiante de profesorado de matemática y desarrollador web. 
+      Me especializo en HTML, CSS, JavaScript y proyectos web funcionales.
+    </p>
+    <button class="btn" onclick="scrollToSection('proyectos')">Ver mis proyectos</button>
   </header>
 
-  <!-- INICIO -->
-  <section id="inicio" class="hero">
-    <h2>Uñas perfectas con estilo princesa ✨</h2>
-    <p>Diseños únicos, elegantes y personalizados</p>
-    <a href="#contacto" class="btn">Reservar Turno</a>
-  </section>
+  <!-- ABOUT -->
+<section id="sobre-mi" class="about">
+  <h2 class="section-title">Sobre mí</h2>
+    <div class="card"><p>
+      Soy estudiante de profesorado en Matemática y desarrollador web de Argentina.
+      Me especializo en crear aplicaciones web funcionales con HTML, CSS, JavaScript y Node.js.
+      También tengo experiencia técnica en reparación de dispositivos electrónicos,
+      lo que me da un enfoque lógico y analítico para resolver problemas.
+</p></div>
 
-  <!-- SERVICIOS -->
-  <section id="servicios">
-    <h2>Servicios</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>💅 Kapping</h3>
-        <p>Refuerzo para uñas naturales con acabado elegante.</p>
-      </div>
-      <div class="card">
-        <h3>🌸 Esmaltado Semipermanente</h3>
-        <p>Duración y brillo por semanas.</p>
-      </div>
-      <div class="card">
-        <h3>👑 Soft Gel</h3>
-        <p>Extensiones modernas y delicadas.</p>
-      </div>
+</section>
+
+
+
+
+<section id="skills">
+
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-grid">
+    <a id="sobre-mi"><div class="skill">HTML</div></a>
+    <a id="sobre-mi"><div class="skill">CSS</div></a>
+    <a id="sobre-mi"><div class="skill">JavaScript</div></a>
+    <a id="sobre-mi"><div class="skill">Node.js</div></a>
+    <a id="sobre-mi"><div class="skill">Responsive Design</div></a>
+    <a id="sobre-mi"><div class="skill">Git & GitHub</div></a>
+  </div>
+
+</section>
+
+
+
+
+<section id="perfil-tecnico">
+  <h2 class="section-title">Perfil Técnico</h2>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <h3>Hardware</h3>
+      <p>Diagnóstico y reparación de placas, cambio de módulos, microsoldadura, testeo eléctrico.</p>
     </div>
+
+    <div class="tech-card">
+      <h3>Software</h3>
+      <p>Desarrollo web con HTML, CSS, JavaScript y Node.js. Creación de sistemas con autenticación y bases de datos.</p>
+    </div>
+
+    <div class="tech-card">
+      <h3>Lógica & Matemática</h3>
+      <p>Formación académica en matemática que fortalece la resolución de problemas y el pensamiento estructurado.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- PROJECTS -->
+  <section id="proyectos">
+    <h2 class="section-title">Mis Proyectos</h2>
+     <div class="projects-grid">
+
+
+        <a class="button" href="https://inpromaq.com/" target="_blank" class="project-btn"><div class="card">
+         <h3>Pagina Web Empresarial</h3>
+          <p>Pagina Web Diseñada Y programada Con HTML,CSS y JS.</p>
+        </div></a>
+
+        <a class="button" href=""><div class="card">
+          <h3>Sistema de Login</h3>
+          <p>Proyecto con Node.js, base de datos y autenticación de usuarios.</p>
+        </div></a>
+        
+        <a class="button" href=""><div class="card">
+          <h3>Landing Page Animada</h3>
+          <p>Landing page con efectos de scroll y diseño profesional.</p>
+        </div></a>
+
+    </div>
+
+
   </section>
 
-  <!-- GALERÍA -->
+  <!-- CONTACT -->
 
-  <section id="galeria">
-  <h2>Mis Trabajos</h2>
-
-  <div class="carousel-container">
+  
+  <section id="contacto" class="contact">
+  <div class="contact-container">
     
-    <div class="fade-left"></div>
-    <div class="fade-right"></div>
-
-    <!-- FLECHAS -->
-    <button class="arrow left">&#10094;</button>
-    <button class="arrow right">&#10095;</button>
-
-    <div class="carousel">
-      <div class="carousel-track" id="track">
-        <img src="img1.jpeg">
-        <img src="img2.jpeg">
-        <img src="img3.jpeg">
-        <img src="img4.png">
-        <img src="img5.png">
-        <img src="img6.png">
-        <img src="img7.png">
-        <img src="img8.png">
-        <img src="img9.png">
-        <img src="img10.png">
-        <img src="img11.png">
-        <img src="img12.png">
-        <img src="img13.png">
-      </div>
+    <div class="card contact-left">
+      <h2 class="section-title">Contacto</h2>
+      <form id="contact-form">
+        <input type="text" name="user_name" placeholder="Tu nombre" required />
+        <input type="email" name="user_email" placeholder="Tu email" required />
+        <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
+        <button class="btn" type="submit">Enviar</button>
+        <input type="text" name="botcheck" style="display:none;">
+      </form>
     </div>
 
-    <!-- DOTS -->
-    <div class="dots" id="dots"></div>
+    <!-- LOGO A LA DERECHA -->
+    <div class="contact-right">
+      <img src="logo.png" alt="Logo Iván" class="contact-logo">
+    </div>
 
   </div>
 </section>
 
-  <!-- CONTACTO -->
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Reservá tu turno por WhatsApp</p>
-    <a href="https://wa.me/+5491132012078" class="btn">Escribirme por WhatsApp</a>
-  </section>
-
   <footer>
-    <p>© 2026 Princess Nails - Todos los derechos reservados</p>
-  </footer>
+  <p>© 2026 Iván</p>
+  <div class="social">
+    <a href="https://github.com/TU-USUARIO" target="_blank">GitHub </a>
+    <a href="https://www.linkedin.com/in/iv%C3%A1n-arias-901282259/">LinkedIn</a>
+    <a href="elivanarias1532@gmail.com">Email</a>
+  </div>
+</footer>
 
-  <script>
-const track = document.getElementById("track");
-const images = track.querySelectorAll("img");
-const leftBtn = document.querySelector(".arrow.left");
-const rightBtn = document.querySelector(".arrow.right");
-const dotsContainer = document.getElementById("dots");
-
-let index = 0;
-let autoSlide;
-let startX = 0;
-let isDragging = false;
-
-const gap = 20; // mismo gap del CSS
-
-/* Crear puntitos */
-images.forEach((_, i) => {
-  const dot = document.createElement("span");
-  if (i === 0) dot.classList.add("active");
-  dot.addEventListener("click", () => moveToSlide(i));
-  dotsContainer.appendChild(dot);
-});
-
-const dots = document.querySelectorAll(".dots span");
-
-function updateDots() {
-  dots.forEach(dot => dot.classList.remove("active"));
-  if (dots[index]) dots[index].classList.add("active");
-}
-
-function getImageWidth() {
-  return images[0].clientWidth + gap;
-}
-
-function moveToSlide(i) {
-  index = i;
-  const imgWidth = getImageWidth();
-  track.style.transform = `translateX(-${imgWidth * index}px)`;
-  updateDots();
-}
-
-/* Flechas */
-/* Flechas (versión segura) */
-if (rightBtn && leftBtn) {
-  rightBtn.addEventListener("click", () => {
-    stopAutoSlide();
-    index = (index + 1) % images.length;
-    moveToSlide(index);
-    startAutoSlide();
-  });
-
-  leftBtn.addEventListener("click", () => {
-    stopAutoSlide();
-    index = (index - 1 + images.length) % images.length;
-    moveToSlide(index);
-    startAutoSlide();
-  });
-}
-
-/* AUTO PLAY */
-function startAutoSlide() {
-  autoSlide = setInterval(() => {
-    index = (index + 1) % images.length;
-    moveToSlide(index);
-  }, 3000);
-}
-
-function stopAutoSlide() {
-  clearInterval(autoSlide);
-}
-
-/* PAUSA AL PASAR MOUSE */
-track.addEventListener("mouseenter", stopAutoSlide);
-track.addEventListener("mouseleave", startAutoSlide);
-
-/* ===== SWIPE TÁCTIL (CELULAR) ===== */
-track.addEventListener("touchstart", (e) => {
-  stopAutoSlide();
-  startX = e.touches[0].clientX;
-});
-
-track.addEventListener("touchmove", (e) => {
-  const moveX = e.touches[0].clientX;
-  const diff = startX - moveX;
-
-  if (Math.abs(diff) > 50) {
-    if (diff > 0) {
-      index = (index + 1) % images.length; // swipe izquierda
-    } else {
-      index = (index - 1 + images.length) % images.length; // swipe derecha
-    }
-    moveToSlide(index);
-    startX = moveX;
-  }
-});
-
-track.addEventListener("touchend", startAutoSlide);
-
-/* ===== DRAG CON MOUSE (PC) ===== */
-track.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  startX = e.clientX;
-  stopAutoSlide();
-});
-
-track.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
-
-  const diff = startX - e.clientX;
-
-  if (Math.abs(diff) > 50) {
-    if (diff > 0) {
-      index = (index + 1) % images.length;
-    } else {
-      index = (index - 1 + images.length) % images.length;
-    }
-    moveToSlide(index);
-    startX = e.clientX;
-  }
-});
-
-track.addEventListener("mouseup", () => {
-  isDragging = false;
-  startAutoSlide();
-});
-
-track.addEventListener("mouseleave", () => {
-  isDragging = false;
-});
-
-/* Iniciar carrusel */
-startAutoSlide();
-</script>
-
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="scripts.js"></script>
+<div class="grid-background"></div>
 </body>
+
+
 </html>
